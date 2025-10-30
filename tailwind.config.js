@@ -34,6 +34,8 @@ module.exports = {
         },
         danger: "#FF0000",
 
+
+
       }
     },
   },

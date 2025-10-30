@@ -3,16 +3,15 @@ import {SafeAreaView} from "react-native-safe-area-context";
 import {ActivityIndicator} from "react-native";
 import {Redirect, Slot} from "expo-router";
 
-export default function AppLayOut(){
+function AppLayOut(){
     const  {loading, isLogged} = useGlobalContext();
 
-    if(loading) {
-        return (
+    if(loading) return (
             <SafeAreaView className={'bg-white flex justify-center items-center h-full'}>
                 <ActivityIndicator className={"text-primary"} size="large" />
             </SafeAreaView>
         )
-    }
+
 
 
 
@@ -20,3 +19,5 @@ export default function AppLayOut(){
 
     return <Slot />
 }
+
+export  default  AppLayOut

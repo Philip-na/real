@@ -4,19 +4,19 @@ import { getCurrentUser } from "./appwrite";
 import { useAppwrite } from "./useAppwrite";
 import { Redirect } from "expo-router";
 
-interface GlobalContextType {
-    isLogged: boolean;
-    user: User | null;
-    loading: boolean;
-    refetch: () => void;
-}
-
 interface User {
     $id: string;
     name: string;
     email: string;
     avatar: string;
 }
+interface GlobalContextType {
+    isLogged: boolean;
+    user: User | null;
+    loading: boolean;
+    refetch: (newParams?: Record<string, string | number>) => Promise<void>;
+}
+
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
@@ -24,7 +24,7 @@ interface GlobalProviderProps {
     children: ReactNode;
 }
 
-export const GlobalProvider = ({ children }: GlobalProviderProps) => {
+ const GlobalProvider = ({ children }: GlobalProviderProps) => {
     const {
         data: user,
         loading,

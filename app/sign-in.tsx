@@ -11,13 +11,13 @@ const SignIn = () => {
 
     const {refetch, loading, isLogged} = useGlobalContext()
     
-    if (!loading && !isLogged) return <Redirect href={'/'} />
+    if (!loading && isLogged) return <Redirect href={'/'} />
     const handleSignIn = async () => {
         const result = await login()
 
         if(result){
 
-            refetch()
+            await refetch()
         } else {
             Alert.alert("Error", "Login failed")
         }

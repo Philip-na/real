@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const Expore = () => {
+const Explore = () => {
   return (
     <View>
       <Text>Expore</Text>
@@ -9,4 +9,4 @@ const Expore = () => {
   )
 }
 
-export default Expore
+export default Explore

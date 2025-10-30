@@ -2,7 +2,7 @@ import { Alert } from "react-native";
 import { useEffect, useState, useCallback } from "react";
 
 interface UseAppwriteOptions<T, P extends Record<string, string | number>> {
-    fn: (params: P) => Promise<T>;
+    fn: (params?: P) => Promise<T>;
     params?: P;
     skip?: boolean;
 }
@@ -43,11 +43,17 @@ export const useAppwrite = <T, P extends Record<string, string | number>>({
         [fn]
     );
 
+
+
+
+
+
     useEffect(() => {
         if (!skip) {
             fetchData(params);
         }
     }, []);
+
 
     const refetch = async (newParams: P) => await fetchData(newParams);
 
